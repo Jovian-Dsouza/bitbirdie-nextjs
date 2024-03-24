@@ -1,13 +1,11 @@
 import { headers } from "next/headers";
 import { getChatResponse } from "../chatApi";
-
+import { baseModel, basePrompt } from "@/data/llmData";
 /*
 curl -H "Authorization: Bearer 1234"  \
   -X POST "http://localhost:3000/api/chat" \
   -H 'Content-Type: application/json' \
   -d '{
-  "base_model": "mistralai/mistral-7b-instruct:free",
-  "prompt": "Your a the best joke telling bot",
   "messages": [
       {
           "role": "user",
@@ -25,9 +23,9 @@ export async function POST(
   if (authToken && authToken === process.env.NEXT_PUBLIC_AUTH_TOKEN) {
     try {
       const body = await req.json();
-      const { messages, prompt, base_model } = body;
+      const { messages } = body;
 
-      if (!base_model) {
+      if (!baseModel) {
         return Response.json(
           {
             error: "Base model not found for the specified model_id",
@@ -35,13 +33,12 @@ export async function POST(
           { status: 404 }
         );
       }
-      if (prompt) {
-        // Insert prompt message if available, at the start of message array
-        messages.unshift({ role: "system", content: prompt });
+      if (basePrompt) {
+        //Insert basePrompt at the start of the list
+        messages.unshift({ role: "system", content: basePrompt });
       }
 
-      //   console.log("messages: ", messages);
-      const result = await getChatResponse(base_model, messages);
+      const result = await getChatResponse(baseModel, messages);
 
       return Response.json({ result });
     } catch (error) {

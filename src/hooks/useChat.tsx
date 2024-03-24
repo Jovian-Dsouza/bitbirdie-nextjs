@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export function usePlayground(baseModel, prompt) {
+export function useChat() {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
 
@@ -19,8 +19,6 @@ export function usePlayground(baseModel, prompt) {
         },
         body: JSON.stringify({
           messages: messages,
-          base_model: baseModel,
-          prompt: prompt
         }),
       });
 
