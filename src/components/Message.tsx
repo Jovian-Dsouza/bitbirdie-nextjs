@@ -1,20 +1,25 @@
 import React from "react";
 import Image from "next/image";
 
-function Message({ message }: any) {
+function Message({ message, userName, aiName, userAvatar, aiAvatar }: any) {
   const isSystemMessage = message.role == "assistant";
+  const displayName = isSystemMessage ? userName : aiName
+  const avatar = !isSystemMessage ?  userAvatar  :  aiAvatar ;
 
   return (
-    <div className={`py-5 text-white ${isSystemMessage && "bg-[#282e49]"}`}>
-      <div className="flex space-x-5 px-10 max-w-2xl mx-auto">
+    <div className={`py-4 text-white`}>
+      <div className="flex space-x-4 px-10 max-w-2xl mx-auto">
         <Image
-          src={!isSystemMessage ? "/user_logo.png" : "/okto_logo.png"}
+          src={avatar}
           alt=""
-          className="h-8 w-8 rounded-full"
+          className="h-6 w-6 rounded-full"
           width={32}
           height={32}
         />
-        <p className="pt-1 text-sm whitespace-pre-line">{message.content}</p>
+        <div className="flex flex-col">
+          <div className="text-md font-bold">{displayName}</div>
+          <p className="text-sm whitespace-pre-line">{message.content}</p>
+        </div>
       </div>
     </div>
   );
