@@ -1,4 +1,5 @@
-import { useState } from "react";
+"use client";
+import { useEffect, useState } from "react";
 import { demoPrompts } from "@/data/llmData";
 
 export function DemoCard({ title, prompt, onClick }) {
@@ -22,10 +23,14 @@ export function DemoCard({ title, prompt, onClick }) {
 }
 
 export function DemoCards({ onCardClick }) {
-    const isSmallScreen = window.innerWidth < 640; // Adjust breakpoint as needed
-    const prompts = isSmallScreen
-      ? demoPrompts.slice(0, 2)
-      : demoPrompts.slice(0, 4);
+  const [isSmallScreen, setIsSmallScreen] = useState(false)
+  const prompts = isSmallScreen
+    ? demoPrompts.slice(0, 2)
+    : demoPrompts.slice(0, 4);
+
+  useEffect(()=>{
+    setIsSmallScreen(window.innerWidth < 640); // Adjust breakpoint as needed
+  }, [])
 
   return (
     <div className="items-center w-full text-gray-500  text-center py-1 px-2  mx-auto">
