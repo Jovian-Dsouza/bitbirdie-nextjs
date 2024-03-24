@@ -3,7 +3,7 @@ import Image from "next/image";
 
 function Message({ message, userName, aiName, userAvatar, aiAvatar }: any) {
   const isSystemMessage = message.role == "assistant";
-  const displayName = isSystemMessage ? userName : aiName
+  const displayName = !isSystemMessage ? userName : aiName
   const avatar = !isSystemMessage ?  userAvatar  :  aiAvatar ;
 
   return (
