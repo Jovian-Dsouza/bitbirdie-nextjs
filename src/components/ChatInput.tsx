@@ -35,7 +35,7 @@ export function ChatInput({ onSubmit, isLoading, isLoggedIn }) {
   };
 
   return (
-    <div className="flex justify-center items-center mt-2 mb-4">
+    <div className="flex justify-center items-center mt-2 mb-4 mx-2">
       <div className="bg-gray-700/50 text-gray-400 max-w-2xl w-full rounded-2xl text-sm">
         <form
           className="px-5 py-3 space-x-5 flex items-end"

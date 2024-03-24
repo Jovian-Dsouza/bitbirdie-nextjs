@@ -22,11 +22,14 @@ export function DemoCard({ title, prompt, onClick }) {
 }
 
 export function DemoCards({ onCardClick }) {
-  const prompts = demoPrompts.slice(0, 4);
+    const isSmallScreen = window.innerWidth < 640; // Adjust breakpoint as needed
+    const prompts = isSmallScreen
+      ? demoPrompts.slice(0, 2)
+      : demoPrompts.slice(0, 4);
 
   return (
-    <div className="items-center w-full text-gray-500  text-center py-1  mx-auto">
-      <div className="grid grid-cols-2 gap-2">
+    <div className="items-center w-full text-gray-500  text-center py-1 px-2  mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
         {prompts.map((prompt, index) => (
           <DemoCard
             key={index}
