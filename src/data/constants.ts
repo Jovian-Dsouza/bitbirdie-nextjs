@@ -1,3 +1,3 @@
 export const menuLinks = [
-  { text: "Chat", href: "/" },
+  // { text: "Chat", href: "/" },
 ];
