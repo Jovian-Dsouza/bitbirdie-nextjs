@@ -5,7 +5,7 @@ export const demoPrompts = [
   },
   { name: "Send Action", prompt: "Please send 100 USDT to Alice's wallet." },
   { name: "Swap Action", prompt: "I want to swap 0.5 ETH for 10 SOL." },
-  { name: "Order Histry", prompt: "Show me my order history" },
+  { name: "Order History", prompt: "Show me my order history" },
   {
     name: "Information on NFT Action",
     prompt:
@@ -47,4 +47,6 @@ Output should only contain JSON object. Output should contain only one action. N
 
 // export const baseModel = "mistralai/mistral-7b-instruct:free";
 // export const baseModel = "google/gemma-7b-it:free";
-export const baseModel = "openrouter/cinematika-7b:free";
+// export const baseModel = "openrouter/cinematika-7b:free";
+
+export const baseModel = "gpt-3.5-turbo";
