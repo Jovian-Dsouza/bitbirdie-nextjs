@@ -46,6 +46,12 @@ function OktoWalletContainer({ show, setShow }) {
   }
   return (
     <div className="z-30 flex flex-col space-y-5 fixed top-0 right-20 h-[38rem] w-[22rem] bg-white border text-black rounded-lg shadow-lg p-4">
+      {/* Warning */}
+      <div className="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-2 rounded-md mb-4">
+        Awaiting integration: Wallet UI is pending SDK integration, awaiting API
+        keys from Okto team.
+      </div>
+
       {/* header */}
       <div className="flex items-center justify-between">
         {/* logo */}
@@ -59,7 +65,9 @@ function OktoWalletContainer({ show, setShow }) {
           <UserIcon className="h-4 w-4 text-slate-600 hover:text-black" />
           {/* Close button */}
           <XMarkIcon
-            onClick={() => {setShow(false)}}
+            onClick={() => {
+              setShow(false);
+            }}
             className="h-5 w-5 text-slate-600 hover:text-black"
           >
             Close
