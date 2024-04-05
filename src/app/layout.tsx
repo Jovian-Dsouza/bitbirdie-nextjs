@@ -16,8 +16,8 @@ const urbanist = Urbanist({
 });
 
 export const metadata: Metadata = {
-  title: "Okto AI",
-  description: "Okto AI",
+  title: "BitBirdie",
+  description: "BitBirdie",
 };
 
 export default async function RootLayout({
@@ -31,7 +31,7 @@ export default async function RootLayout({
       <body className={urbanist.className}>
         <AuthProvider session={session}>
           <RecoilContextProvider>
-            <div className="flex flex-col justify-between min-h-screen bg-gray-900">
+            <div className="flex flex-col justify-between min-h-screen bg-[#17183c]">
               <div className="flex flex-col">
                 <Header />
                 {children}

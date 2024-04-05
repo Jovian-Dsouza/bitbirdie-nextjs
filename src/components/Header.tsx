@@ -6,6 +6,7 @@ import Container from "./Container";
 import { usePathname } from "next/navigation";
 import { useSession, signIn, signOut } from "next-auth/react";
 import OktoWalletContainer from "./oktoWallet/OktoWalletContainer";
+import Image from "next/image";
 
 function Header() {
   const pathname = usePathname();
@@ -35,12 +36,15 @@ function Header() {
               aria-label="logo"
               className="flex space-x-2 items-center"
             >
-              <div aria-hidden="true" className="flex space-x-1">
-                <div className="h-4 w-4 rounded-full bg-gray-900 dark:bg-white"></div>
-                <div className="h-6 w-2 bg-primary"></div>
-              </div>
+              <Image
+                src="/bitbirdie_logo.jpeg"
+                alt="logo"
+                className="h-10 w-10 rounded-full"
+                width={32}
+                height={32}
+              />
               <span className="text-2xl font-bold text-gray-900 dark:text-white">
-                Okto AI
+                BitBirdie
               </span>
             </Link>
           </div>

@@ -41,9 +41,9 @@ export function Chat({ isLoading, isError, isLoggedIn }) {
             key={index}
             message={message}
             userName="User"
-            aiName="Okto AI"
+            aiName="BitBirdie"
             userAvatar="/user_logo.png"
-            aiAvatar="/okto_logo.png"
+            aiAvatar="/bitbirdie_logo.jpeg"
           />
         ))}
         {isLoading && <ThreeDotLoading />}
