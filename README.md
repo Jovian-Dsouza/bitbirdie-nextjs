@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# BitBirdie
 
-## Getting Started
+![BitBirdie Logo](public/bitbirdie_logo.jpeg)
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Overview:
+BitBirdie is an AI-powered cryptocurrency wallet designed to simplify web3 transactions using natural language processing. Built with Okto wallet and AI technology, BitBirdie aims to make crypto accessible to all.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features:
+- **Natural Language Interface:** Perform transactions and interact with the blockchain using simple commands.
+- **Transaction Management:** Transfer SOL, buy/sell tokens, swap tokens, interact with smart contracts, view balances, and transaction history.
+- **Address Book:** Easily manage contacts for seamless transactions.
+- **Future Enhancements:** Set limit orders, dollar-cost averaging, price alerts, and market insights.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## How to Use:
+1. Install BitBirdie on your device.
+2. Connect with your Google account that creates a secure self custodial wallet
+3. Use natural language commands to perform transactions and manage your crypto assets.
+4. Explore additional features and stay tuned for updates.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Contributing:
+- We welcome contributions from Web3 developers and AI enthusiasts.
+- Fork the repository, make your changes, and submit a pull request.
+- For major changes, please open an issue to discuss potential updates.
 
-## Learn More
+## Support:
+- For assistance or inquiries, contact [dsouzajovian123@gmail.com](mailto:dsouzajovian123@gmail.com).
+- Join our community on [Twitter](https://twitter.com/bitbirdie21001) for updates and announcements.
 
-To learn more about Next.js, take a look at the following resources:
+## License:
+BitBirdie is licensed under the MIT License. See [LICENSE](LICENSE) for details.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Acknowledgments:
+We would like to thank the open-source community for their invaluable contributions to BitBirdie.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Disclaimer:
+BitBirdie is provided "as is" without warranty of any kind. Use at your own risk.
 
-## Deploy on Vercel
+## Demo:
+- 🌏 [BitBirdie](https://bitbirdie.vercel.app/)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Connect with Us:
+- Website: [bitbirdie.vercel.app](https://bitbirdie.vercel.app/)
+- Twitter: [twitter.com/bitbirdie21001](https://twitter.com/bitbirdie21001)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Stay Informed:
+- Subscribe to our newsletter for the latest updates and announcements.
+
+**Thank you for choosing BitBirdie!**
