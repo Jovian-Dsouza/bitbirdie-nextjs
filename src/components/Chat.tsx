@@ -8,6 +8,7 @@ import { messagesAtom } from "@/store/atoms/chatAtoms";
 import { DemoCards } from "./DemoCards";
 import { SwapWidget } from "./jupiter/Swap";
 import SystemMesage from "./SystemMessage";
+import BrianAsk from "@/components/Brian/BrianAsk"
 
 function EmptyChat() {
   return (
@@ -32,6 +33,14 @@ export function MessageRouter({ message, index }) {
             to={messageJson.tokenTo}
             fromAmount={messageJson.amountIn}
           />
+        </SystemMesage>
+      );
+    }
+
+    if (messageJson.action === "brian_ask") {
+      return (
+        <SystemMesage>
+          <BrianAsk message_details={messageJson.details} />
         </SystemMesage>
       );
     }

@@ -42,7 +42,7 @@ export async function getChatResponse(messages) {
     const brainResponse = await askBrian(messages);
     console.log(brainResponse)
     return {
-      "action": "brain_ask", 
+      "action": "brian_ask", 
       "details": brainResponse
     }
   }

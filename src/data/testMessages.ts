@@ -1,0 +1,1 @@
+const testBrainAsk = { role: "assistant", content: "{\"action\": \"brian_ask\", \"details\": \"Hi there whats up \"}" }
