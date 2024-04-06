@@ -50,7 +50,7 @@ export default function ChatPage() {
   }, [messages]);
 
   return (
-    <main className="h-screen pt-20">
+    <main className="h-screen pt-5">
       <div className="flex h-full">
         <div className="flex flex-col h-full w-full overflow-hidden">
           <div className="flex-1 overflow-y-scroll no-scrollbar">

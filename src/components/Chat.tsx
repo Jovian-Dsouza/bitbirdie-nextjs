@@ -8,24 +8,32 @@ import { messagesAtom } from "@/store/atoms/chatAtoms";
 import { DemoCards } from "./DemoCards";
 import { SwapWidget } from "./jupiter/Swap";
 import SystemMesage from "./SystemMessage";
-import BrianAsk from "@/components/Brian/BrianAsk"
+import BrianAsk from "@/components/Brian/BrianAsk";
 
 function EmptyChat() {
   return (
-    <div className="text-gray-500 text-center py-8 px-2 mx-auto">
-      The chat is currently empty. No messages are available at the moment.
-      Please feel free to start the conversation, and I'll be here to assist you
-      promptly.
+    <div className="mx-auto mt-12">
+      <div className="font-semibold max-w-md text-xl text-left pt-8 px-2">
+        Hello! I am{" "}
+        <span className="bg-clip-text text-transparent bg-gradient-to-br from-teal-400 via-cyan-400 to-blue-500">
+          Bitbirdie
+        </span>{" "}
+        but you can call me Birdie ;)
+      </div>
+
+      <div className="font-semibold max-w-md text-xl text-left py-1 px-2">
+        Here to assist with any questions or guidance you may need
+      </div>
     </div>
   );
 }
 
 export function MessageRouter({ message, index }) {
   // console.log("message", message)
-  if (message.role == "assistant"){
+  if (message.role == "assistant") {
     const messageJson = JSON.parse(message.content);
     console.log("Message content", messageJson);
-    if(messageJson.action === "swap"){
+    if (messageJson.action === "swap") {
       return (
         <SystemMesage>
           <SwapWidget
@@ -45,19 +53,19 @@ export function MessageRouter({ message, index }) {
       );
     }
   }
-    // const messageJson = JSON.parse(message)
-    // console.log(messageJson)
+  // const messageJson = JSON.parse(message)
+  // console.log(messageJson)
 
-    return (
-      <Message
-        key={index}
-        message={message}
-        userName="User"
-        aiName="BitBirdie"
-        userAvatar="/user_logo.png"
-        aiAvatar="/bitbirdie_logo.jpeg"
-      />
-    );
+  return (
+    <Message
+      key={index}
+      message={message}
+      userName="User"
+      aiName="BitBirdie"
+      userAvatar="/user_logo.png"
+      aiAvatar="/bitbirdie_logo.jpeg"
+    />
+  );
 }
 
 export function Chat({ isLoading, isError, isLoggedIn }) {
@@ -82,7 +90,6 @@ export function Chat({ isLoading, isError, isLoggedIn }) {
         {messages.map((message, index) => (
           <MessageRouter message={message} index={index} />
         ))}
-        
 
         {isLoading && <ThreeDotLoading />}
         {isError && <div>Error loading messages</div>}

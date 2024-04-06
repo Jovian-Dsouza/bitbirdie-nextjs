@@ -27,10 +27,10 @@ function Header() {
   }
 
   return (
-    <nav className="z-10 w-full absolute">
+    <nav className="z-10 w-full absolute bg-transparent hidden lg:block">
       <OktoWalletContainer show={showWallet} setShow={setShowWallet} />
       <Container>
-        <div className="flex flex-wrap items-center justify-between py-2 gap-6 md:py-4 md:gap-0 relative">
+        <div className="flex flex-wrap items-center justify-between pt-2 gap-6 md:gap-0 relative">
           <div className="relative z-20 w-full flex justify-between lg:w-max md:px-0">
             <Link
               href="/"
