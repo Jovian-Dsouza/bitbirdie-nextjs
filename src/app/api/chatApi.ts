@@ -1,6 +1,7 @@
 import OpenAI from "openai";
 import { brian, askBrian } from "./brian/brianApi";
-import { basePrompt, baseModel } from "@/data/llmData";
+import { baseModel } from "@/data/llmData";
+import { basePrompt } from "@/data/prompt";
 
 export const openRouter = new OpenAI({
   baseURL: process.env.OPENROUTER_BASE_URL,
