@@ -57,6 +57,7 @@ export default function ChatPage() {
             <Chat isLoading={isLoading} isError={isError} isLoggedIn={true} />
             <div style={{ float: "left", clear: "both" }} ref={chatRef}></div>
           </div>
+  
           <div className="sticky bottom-0 w-full">
             <ChatInput
               onSubmit={handleChatInput}
