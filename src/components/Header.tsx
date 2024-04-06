@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { useSession, signIn, signOut } from "next-auth/react";
 import OktoWalletContainer from "./oktoWallet/OktoWalletContainer";
 import Image from "next/image";
+import { WalletButton } from "./solana/solana-provider";
 
 function Header() {
   const pathname = usePathname();
@@ -66,8 +67,8 @@ function Header() {
                 </ul>
               </div>
             )}
-
-            {!showWallet && (
+            <WalletButton />
+            {/* {!showWallet && (
               <div className="flex space-x-2 mt-12 lg:mt-0">
                 <button
                   onClick={() => {
@@ -80,7 +81,7 @@ function Header() {
                   </span>
                 </button>
               </div>
-            )}
+            )} */}
           </div>
         </div>
       </Container>
