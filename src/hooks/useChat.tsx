@@ -4,21 +4,9 @@ export function useChat() {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
 
-  function filterResponse(inputText) {
-    const startIndex = inputText.indexOf("{");
-    const endIndex = inputText.lastIndexOf("}") + 1;
-    const jsonString = inputText.substring(startIndex, endIndex);
+  
 
-    try {
-      const jsonObject = JSON.parse(jsonString);
-      console.log(jsonObject);
-      return JSON.stringify(jsonObject, null, 2); 
-    } catch (error) {
-      console.error("Error parsing JSON:", error);
-    }
-    return `{"action" : "undefined"}`
-  }
-
+  
 
   async function getChatResponse(messages) {
     setIsLoading(true);
@@ -44,7 +32,7 @@ export function useChat() {
 
       const data = await response.json();
       setIsLoading(false);
-      return filterResponse(data["result"]);
+      return JSON.stringify(data["result"], null, 2);
     } catch (error) {
       setIsError(true);
       throw new Error("There was a problem with the fetch operation:", error);

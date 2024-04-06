@@ -1,4 +1,6 @@
 import OpenAI from "openai";
+import { brian, askBrian } from "./brian/brianApi";
+import { basePrompt, baseModel } from "@/data/llmData";
 
 export const openRouter = new OpenAI({
   baseURL: process.env.OPENROUTER_BASE_URL,
@@ -9,23 +11,39 @@ export const openRouter = new OpenAI({
   },
 });
 
-export function listModels() {
-  const modelData = {
-    "Nous: Capybara 7B (free)": "nousresearch/nous-capybara-7b:free",
-    "Mistral 7B Instruct (free)": "mistralai/mistral-7b-instruct:free",
-    "MythoMist 7B (free)": "gryphe/mythomist-7b:free",
-    "Toppy M 7B (free)": "undi95/toppy-m-7b:free",
-    "Cinematika 7B (alpha) (free)": "openrouter/cinematika-7b:free",
-    "Google: Gemma 7B (free)": "google/gemma-7b-it:free",
-  };
-  return Object.keys(modelData).map((name) => ({ name, id: modelData[name] }));
+function filterResponse(inputText) {
+  try {
+    const startIndex = inputText.indexOf("{");
+    const endIndex = inputText.lastIndexOf("}") + 1;
+    const jsonString = inputText.substring(startIndex, endIndex);
+    const jsonObject = JSON.parse(jsonString);
+    return jsonObject
+  } catch (error) {
+    console.error("Error parsing JSON:", error);
+  }
+  return {"action" : "undefined"};
 }
 
-export async function getChatResponse(model: string, messages) {
-  // Uuse OpenRouter object
+export async function getChatResponse(messages) {
+  const messagesWithPrompt = [{ role: "system", content: basePrompt }, ...messages];
+  // if (basePrompt) {
+  //   messages.unshift({ role: "system", content: basePrompt });
+  // }
+  console.log("messages with prompt", messagesWithPrompt)
   const completion = await openRouter.chat.completions.create({
-    messages,
-    model,
+    messages: messagesWithPrompt,
+    model: baseModel,
   });
-  return completion.choices[0].message.content;
+  const response = filterResponse(completion.choices[0].message.content)
+  console.log(response)
+  if(response["action"] === "undefined"){
+    console.log("Undefined action")
+    const brainResponse = await askBrian(messages);
+    console.log(brainResponse)
+    return {
+      "action": "brain_ask", 
+      "details": brainResponse
+    }
+  }
+  return response
 }

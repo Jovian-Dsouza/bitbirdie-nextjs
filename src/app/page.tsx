@@ -5,7 +5,7 @@ import { useEffect, useRef } from "react";
 import { useChat } from "@/hooks/useChat";
 import { useRecoilState } from "recoil";
 import { messagesAtom } from "@/store/atoms/chatAtoms";
-import { getMessageObject } from "@/utilities/messageUtils";
+import { getMessageObject, filterRelevantMessages, checkLastMessageFromUser} from "@/utilities/messageUtils";
 
 export default function ChatPage() {
   const [messages, setMessages] = useRecoilState(messagesAtom);
@@ -30,12 +30,12 @@ export default function ChatPage() {
     addMessage(input, false);
   }
 
-  async function fetchServerMessage(input) {
+  async function fetchServerMessage() {
     try {
-      const severMessage = await getChatResponse([
-        ...messages,
-        getMessageObject(input, false),
-      ]);
+      const relevantMessages = filterRelevantMessages(messages)
+      // console.log("messages", messages)
+      // console.log("relevant Messages", relevantMessages)
+      const severMessage = await getChatResponse(relevantMessages);
       addMessage(severMessage, true);
     } catch (error) {
       console.error("Error handling chat input:", error);
@@ -44,9 +44,8 @@ export default function ChatPage() {
 
   //Call server when message is changed
   useEffect(() => {
-    const lastMessage = messages[messages.length - 1];
-    if (lastMessage && lastMessage.role === "user") {
-      fetchServerMessage(lastMessage.content);
+    if (checkLastMessageFromUser(messages)) {
+      fetchServerMessage();
     }
   }, [messages]);
 
