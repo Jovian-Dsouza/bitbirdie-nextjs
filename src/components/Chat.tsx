@@ -6,6 +6,8 @@ import { getMessageObject } from "@/utilities/messageUtils";
 import { useRecoilState } from "recoil";
 import { messagesAtom } from "@/store/atoms/chatAtoms";
 import { DemoCards } from "./DemoCards";
+import { SwapWidget } from "./jupiter/Swap";
+import SystemMesage from "./SystemMessage";
 
 function EmptyChat() {
   return (
@@ -15,6 +17,38 @@ function EmptyChat() {
       promptly.
     </div>
   );
+}
+
+export function MessageRouter({ message, index }) {
+  // console.log("message", message)
+  if (message.role == "assistant"){
+    const messageJson = JSON.parse(message.content);
+    console.log("Message content", messageJson);
+    if(messageJson.action === "swap"){
+      return (
+        <SystemMesage>
+          <SwapWidget
+            from={messageJson.tokenFrom}
+            to={messageJson.tokenTo}
+            fromAmount={messageJson.amountIn}
+          />
+        </SystemMesage>
+      );
+    }
+  }
+    // const messageJson = JSON.parse(message)
+    // console.log(messageJson)
+
+    return (
+      <Message
+        key={index}
+        message={message}
+        userName="User"
+        aiName="BitBirdie"
+        userAvatar="/user_logo.png"
+        aiAvatar="/bitbirdie_logo.jpeg"
+      />
+    );
 }
 
 export function Chat({ isLoading, isError, isLoggedIn }) {
@@ -37,15 +71,10 @@ export function Chat({ isLoading, isError, isLoggedIn }) {
           </div>
         )}
         {messages.map((message, index) => (
-          <Message
-            key={index}
-            message={message}
-            userName="User"
-            aiName="BitBirdie"
-            userAvatar="/user_logo.png"
-            aiAvatar="/bitbirdie_logo.jpeg"
-          />
+          <MessageRouter message={message} index={index} />
         ))}
+        
+
         {isLoading && <ThreeDotLoading />}
         {isError && <div>Error loading messages</div>}
       </div>

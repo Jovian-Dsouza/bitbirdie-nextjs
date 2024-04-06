@@ -32,7 +32,7 @@ export function useChat() {
 
       const data = await response.json();
       setIsLoading(false);
-      return JSON.stringify(data["result"], null, 2);
+      return JSON.stringify(data["result"]);
     } catch (error) {
       setIsError(true);
       throw new Error("There was a problem with the fetch operation:", error);
