@@ -10,6 +10,7 @@ import { SwapWidget } from "./jupiter/Swap";
 import SystemMesage from "./SystemMessage";
 import BrianAsk from "@/components/Brian/BrianAsk";
 import { LimitWidget } from "./jupiter/LimitWidget"
+import { PriceWidget } from "./jupiter/PriceWidget";
 
 function EmptyChat() {
   return (
@@ -54,6 +55,17 @@ export function MessageRouter({ message, index }) {
             to={messageJson.tokenTo}
             fromAmount={messageJson.amountIn}
             toAmount={messageJson.amountOut}
+          />
+        </SystemMesage>
+      );
+    }
+
+    if (messageJson.action === "get_price") {
+      return (
+        <SystemMesage>
+          <PriceWidget
+            from={messageJson.tokenFrom}
+            to={messageJson.tokenTo}
           />
         </SystemMesage>
       );
