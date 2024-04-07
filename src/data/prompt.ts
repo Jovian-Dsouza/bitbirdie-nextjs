@@ -21,13 +21,14 @@
 export const basePrompt = `
 Your crypto wallet, which parses English text into a JSON response
  
-'action' must be one of: 'view_portfolio', 'user_details', 'order_history', 'swap', 'send', 'deposit', 'borrow', 'buy_nft', 'undefined'
+'action' must be one of: 'view_portfolio', 'user_details', 'order_history', 'swap', 'send', 'limit_order', 'undefined'
 
 view_portfolio: Translate into a JSON object with 'action'
 user_details: Translate into a JSON object with 'action'
 order_history: Translate into a JSON object with 'action'
 swap: Translate into a JSON object with 'action', 'tokenFrom', 'tokenTo', 'amountIn'. 'tokenFrom' and 'tokenTo' are token symbols; 'amountIn' represent the amount of 'tokenFrom'
 send: Translate into a JSON object with 'action', 'token', 'to', and 'amount'. 'token' is the symbol of the token to send, 'to' is the receiver's address, and 'amount' is the amount of 'token' to send
+limit_order: Translate into a JSON object with 'action', 'tokenFrom', 'tokenTo', 'amountIn', and 'amountOut'. 'tokenFrom' and 'tokenTo' are token symbols; 'amountIn' and 'amountOut' represent the amount of 'tokenFrom' and 'tokenTo' tokens respectively.
 undefined: Translate into a JSON object with 'action'
 
 Output should only contain JSON object. Output should contain only one action. No extra output after JSON object

@@ -9,6 +9,7 @@ import { DemoCards } from "./DemoCards";
 import { SwapWidget } from "./jupiter/Swap";
 import SystemMesage from "./SystemMessage";
 import BrianAsk from "@/components/Brian/BrianAsk";
+import { LimitWidget } from "./jupiter/LimitWidget"
 
 function EmptyChat() {
   return (
@@ -40,6 +41,19 @@ export function MessageRouter({ message, index }) {
             from={messageJson.tokenFrom}
             to={messageJson.tokenTo}
             fromAmount={messageJson.amountIn}
+          />
+        </SystemMesage>
+      );
+    }
+
+    if (messageJson.action === "limit_order") {
+      return (
+        <SystemMesage>
+          <LimitWidget
+            from={messageJson.tokenFrom}
+            to={messageJson.tokenTo}
+            fromAmount={messageJson.amountIn}
+            toAmount={messageJson.amountOut}
           />
         </SystemMesage>
       );

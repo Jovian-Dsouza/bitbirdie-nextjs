@@ -1,10 +1,10 @@
 export const demoPrompts = [
+  { name: "Swap Action", prompt: "I want to swap 0.01 SOL for BONK." },
   {
-    name: "View Portfolio Action",
-    prompt: "Show me my portfolio on the Ethereum network.",
+    name: "Limit Order",
+    prompt: "Set limit order to buy 60 wif tokens for 1 SOL",
   },
   { name: "Send Action", prompt: "Please send 100 USDT to Alice's wallet." },
-  { name: "Swap Action", prompt: "I want to swap 0.01 SOL for BONK." },
   { name: "Order History", prompt: "Show me my order history" },
   {
     name: "Information on NFT Action",
@@ -22,6 +22,10 @@ export const demoPrompts = [
   {
     name: "Buy NFT Action",
     prompt: "Buy a Bored Ape Yacht Club NFT on Ethereum.",
+  },
+  {
+    name: "View Portfolio Action",
+    prompt: "Show me my portfolio on the Ethereum network.",
   },
 ];
 
