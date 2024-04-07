@@ -15,13 +15,18 @@ export function PriceWidget({ from, to }) {
   async function getPrice() {
     const quote = await (
       await fetch(
-        `https://price.jup.ag/v4/price?ids=${fromAsset.name}&vsToken=${toAsset.name}`
+        `https://quote-api.jup.ag/v6/quote?inputMint=${
+          fromAsset.mint
+        }&outputMint=${toAsset.mint}&amount=${
+          fromAmount * Math.pow(10, fromAsset.decimals)
+        }&slippage=0.5`
       )
     ).json();
 
-    // console.log(quote)
-    if (quote && quote.data) {
-      setToAmount(quote.data[fromAsset.name].price);
+    if (quote && quote.outAmount) {
+      const outAmountNumber =
+        Number(quote.outAmount) / Math.pow(10, toAsset.decimals);
+      setToAmount(outAmountNumber);
     }
   }
 
