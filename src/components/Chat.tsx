@@ -10,6 +10,7 @@ import { SwapWidget } from "./jupiter/Swap";
 import BrianAsk from "@/components/Brian/BrianAsk";
 import { LimitWidget } from "./jupiter/LimitWidget";
 import { PriceWidget } from "./jupiter/PriceWidget";
+import { SendWidget } from "@/components/send/SendWidget"
 
 function EmptyChat() {
   return (
@@ -34,6 +35,17 @@ export function MessageRouter({ message, index }) {
   if (message.role == "assistant") {
     const messageJson = JSON.parse(message.content);
     console.log("Message content", messageJson);
+
+    if (messageJson.action === "send") {
+      return (
+        <SendWidget
+          fromToken={messageJson.tokenFrom}
+          toAddress={messageJson.toAddress}
+          amountIn={messageJson.amountIn}
+        />
+      );
+    }
+
     if (messageJson.action === "swap") {
       return (
         <SwapWidget

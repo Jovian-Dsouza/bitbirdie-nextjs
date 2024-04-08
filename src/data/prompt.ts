@@ -27,7 +27,7 @@ view_portfolio: Translate into a JSON object with 'action'
 user_details: Translate into a JSON object with 'action'
 order_history: Translate into a JSON object with 'action'
 swap: Translate into a JSON object with 'action', 'tokenFrom', 'tokenTo', 'amountIn'. 'tokenFrom' and 'tokenTo' are token symbols; 'amountIn' represent the amount of 'tokenFrom'
-send: Translate into a JSON object with 'action', 'token', 'to', and 'amount'. 'token' is the symbol of the token to send, 'to' is the receiver's address, and 'amount' is the amount of 'token' to send
+send: Translate into a JSON object with 'action', 'tokenFrom', 'toAddress', and 'amountIn'. 'token' is the symbol of the token to send, 'to' is the receiver's address, and 'amount' is the amount of 'token' to send
 limit_order: Translate into a JSON object with 'action', 'tokenFrom', 'tokenTo', 'amountIn', and 'amountOut'. 'tokenFrom' and 'tokenTo' are token symbols; 'amountIn' and 'amountOut' represent the amount of 'tokenFrom' and 'tokenTo' tokens respectively.
 get_price: Translate into a JSON object with 'action', 'tokenFrom', 'tokenTo'. 'tokenFrom' and 'tokenTo' are token symbols;
 undefined: Translate into a JSON object with 'action'

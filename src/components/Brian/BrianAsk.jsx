@@ -1,4 +1,3 @@
-import React from "react";
 import SystemMesage from "@/components/SystemMessage";
 
 function BrianAsk({ message_details }) {

@@ -13,3 +13,8 @@ export const testSwap = {
   content:
     '{"action": "swap", "tokenFrom": "sol", "tokenTo": "usdc", "amountIn": "0.001"}',
 };
+export const testSend = {
+  role: "assistant",
+  content:
+    '{"action": "send", "tokenFrom": "sol", "toAddress": "9xbfpUgTWYertUT3YHZazAdS1ABLJAouqsh6uc8Vc5Sn", "amountIn": "0.001"}',
+};

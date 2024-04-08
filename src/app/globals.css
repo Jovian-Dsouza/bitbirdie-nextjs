@@ -58,4 +58,8 @@ body {
   .gradient-border-demo-prompts {
     @apply bg-gradient-to-r from-[#C93586] to-[#8639A6]
   }
+
+  .info-box {
+    @apply bg-[#17183C] px-2 py-1 rounded border border-[#c4b5fd] 
+  }
 }
