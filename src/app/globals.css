@@ -41,3 +41,9 @@ body {
     scrollbar-width: none; /* Firefox */
   }
 }
+
+@layer components {
+  .header-bg-border {
+    @apply px-5 py-2 rounded-full border-2 border-solid border-gray-800 bg-gradient-to-b from-[#121215] to-[#1C1E22] backdrop-filter backdrop-blur-sm
+  }
+}

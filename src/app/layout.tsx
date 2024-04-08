@@ -43,7 +43,6 @@ export default async function RootLayout({
                       <Header />
                       {children}
                     </div>
-                    {/* <Footer /> */}
                   </div>
                 </RecoilContextProvider>
               </SolanaProvider>
