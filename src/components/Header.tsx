@@ -13,9 +13,9 @@ import Logo from "@/components/landing/Logo"
 function NavLinks() {
   const pathname = usePathname();
   return (
-    <div className="hidden md:flex space-x-20">
-      <div className="lg:pr-4 lg:w-auto w-full lg:pt-0">
-        <ul className="tracking-wide lg:text-sm flex-col flex lg:flex-row space-x-8 text-[#F1F5F9] font-semibold">
+    <div className="hidden md:flex">
+      <div className="w-auto">
+        <ul className="tracking-wide text-sm flex space-x-10 text-[#F1F5F9] font-semibold">
           {menuLinks.map((link, index) => (
             <li key={index}>
               <Link
