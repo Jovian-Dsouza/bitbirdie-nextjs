@@ -7,9 +7,8 @@ import { useRecoilState } from "recoil";
 import { messagesAtom } from "@/store/atoms/chatAtoms";
 import { DemoCards } from "./DemoCards";
 import { SwapWidget } from "./jupiter/Swap";
-import SystemMesage from "./SystemMessage";
 import BrianAsk from "@/components/Brian/BrianAsk";
-import { LimitWidget } from "./jupiter/LimitWidget"
+import { LimitWidget } from "./jupiter/LimitWidget";
 import { PriceWidget } from "./jupiter/PriceWidget";
 
 function EmptyChat() {
@@ -37,46 +36,33 @@ export function MessageRouter({ message, index }) {
     console.log("Message content", messageJson);
     if (messageJson.action === "swap") {
       return (
-        <SystemMesage>
-          <SwapWidget
-            from={messageJson.tokenFrom}
-            to={messageJson.tokenTo}
-            fromAmount={messageJson.amountIn}
-          />
-        </SystemMesage>
+        <SwapWidget
+          from={messageJson.tokenFrom}
+          to={messageJson.tokenTo}
+          fromAmount={messageJson.amountIn}
+        />
       );
     }
 
     if (messageJson.action === "limit_order") {
       return (
-        <SystemMesage>
-          <LimitWidget
-            from={messageJson.tokenFrom}
-            to={messageJson.tokenTo}
-            fromAmount={messageJson.amountIn}
-            toAmount={messageJson.amountOut}
-          />
-        </SystemMesage>
+        <LimitWidget
+          from={messageJson.tokenFrom}
+          to={messageJson.tokenTo}
+          fromAmount={messageJson.amountIn}
+          toAmount={messageJson.amountOut}
+        />
       );
     }
 
     if (messageJson.action === "get_price") {
       return (
-        <SystemMesage>
-          <PriceWidget
-            from={messageJson.tokenFrom}
-            to={messageJson.tokenTo}
-          />
-        </SystemMesage>
+          <PriceWidget from={messageJson.tokenFrom} to={messageJson.tokenTo} />
       );
     }
 
     if (messageJson.action === "brian_ask") {
-      return (
-        <SystemMesage>
-          <BrianAsk message_details={messageJson.details} />
-        </SystemMesage>
-      );
+      return <BrianAsk message_details={messageJson.details} />;
     }
   }
   // const messageJson = JSON.parse(message)
@@ -88,7 +74,7 @@ export function MessageRouter({ message, index }) {
       message={message}
       userName="User"
       aiName="BitBirdie"
-      userAvatar="/user_logo.png"
+      userAvatar="/user_logo3.png"
       aiAvatar="/bitbirdie_logo.jpeg"
     />
   );

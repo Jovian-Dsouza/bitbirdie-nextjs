@@ -6,18 +6,20 @@ export function DemoCard({ title, prompt, onClick }) {
   const [hovered, setHovered] = useState(false);
 
   return (
-    <div
-      className={`border border-gray-600/50 rounded-lg py-2 px-4 cursor-pointer transition duration-300 ease-in-out ${
-        hovered ? "bg-gray-600/50" : ""
-      }`}
-      onClick={() => {
-        onClick(prompt);
-      }}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-    >
-      <h3 className="text-left text-md font-semibold text-gray-400">{title}</h3>
-      <p className="text-left text-sm">{prompt}</p>
+    <div className="gradient-border-demo-prompts rounded-lg">
+      <div
+        className={`bg-[#111215] m-[1px] rounded-lg py-2 px-4 cursor-pointer transition duration-300 ease-in-out ${
+          hovered ? "bg-black/60 text-white" : ""
+        }`}
+        onClick={() => {
+          onClick(prompt);
+        }}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+      >
+        <h3 className="text-left text-md font-semibold ">{title}</h3>
+        <p className="text-left text-sm text-gray-300">{prompt}</p>
+      </div>
     </div>
   );
 }

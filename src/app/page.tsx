@@ -2,12 +2,13 @@
 
 import Image from "next/image";
 import React from "react";
-import MobileContainer from "@/components/landing/MobileContainer"
+import MobileContainer from "@/components/landing/MobileContainer";
 import Footer from "@/components/Footer";
+import GradientButton from "@/components/GradientButton";
 
 const InputWithGradientBorder = () => {
   return (
-    <div className="flex w-full md:w-[80%] bg-gradient-to-r from-[#F9D96D] via-[#C93586] to-[#8639A6] text-white font-semibold rounded p-0.5 ">
+    <div className="gradient-border-outer flex w-full md:w-[80%] text-white font-semibold rounded p-0.5 ">
       <input
         type="email"
         placeholder="Enter Email"
@@ -22,7 +23,6 @@ function LandingPage() {
     <main className="h-screen pt-5 sm:pt-10 md:pt-16 lg:pt-20 bg-[#111215] overflow-scroll no-scrollbar">
       <div className="flex flex-col  justify-center mx-auto min-h-full w-full max-w-6xl  px-5  py-14 md:py-10">
         <section className="flex flex-col-reverse md:flex-row items-center justify-between space-y-5 md:space-y-0 md:space-x-10">
-          
           <div className="flex flex-col space-y-3 max-w-lg md:max-w-none">
             <div className="text-center sm:text-left text-4xl max-w-lg font-semibold text-white font-oxygen">
               We make your Crypto journey effortless with AI and LLM
@@ -35,9 +35,13 @@ function LandingPage() {
             <div className="p-2"></div>
             <div className="flex flex-col md:flex-row w-full md:space-x-2">
               <InputWithGradientBorder />
-              <button className="bg-gradient-to-r from-[#F9D96D] via-[#C93586] to-[#8639A6] font-semibold rounded-md px-4 py-2 text-white hover:text-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 mt-2 md:mt-0">
+              <GradientButton
+                onClick={() => {
+                  console.log("Waitlist joined");
+                }}
+              >
                 Join Waitlist
-              </button>
+              </GradientButton>
             </div>
           </div>
           <div className="py-3 md:py-0"></div>

@@ -8,3 +8,8 @@ export const testGetPrice = {
   content:
     '{"action": "get_price", "tokenFrom": "sol", "tokenTo": "usdc"}',
 };
+export const testSwap = {
+  role: "assistant",
+  content:
+    '{"action": "swap", "tokenFrom": "sol", "tokenTo": "usdc", "amountIn": "0.001"}',
+};

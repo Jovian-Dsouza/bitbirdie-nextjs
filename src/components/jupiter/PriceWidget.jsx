@@ -1,10 +1,8 @@
-import { useWallet } from "@solana/wallet-adapter-react";
 import { assets, getAssetByName } from "@/data/solanaAssests";
-import { VersionedTransaction, Connection } from "@solana/web3.js";
-import React, { useState, useEffect, useCallback } from "react";
-import Image from "next/image";
+import React, { useState, useEffect } from "react";
 import { ArrowRightIcon } from "@heroicons/react/24/solid";
 import { AssetBox } from "./AssetBox";
+import SystemMesage from "@/components/SystemMessage";
 
 export function PriceWidget({ from, to }) {
   const fromAsset = getAssetByName(from);
@@ -40,9 +38,7 @@ export function PriceWidget({ from, to }) {
   }, []);
 
   return (
-    <div className="bg-slate-700 rounded-xl px-6 py-3 flex flex-col items-center space-y-4">
-      <div className="text-xl font-semibold">Market Price</div>
-
+    <SystemMesage title="Market Price" poweredBy="Jupiter">
       {toAmount ? (
         <div className="flex items-center justify-center space-x-3">
           <AssetBox
@@ -54,11 +50,6 @@ export function PriceWidget({ from, to }) {
           <AssetBox name={toAsset.name} amount={toAmount} img={toAsset.img} />
         </div>
       ) : null}
-
-      <div className="flex space-x-2 justify-center">
-        <div className="text-sm">Powered by Jupiter</div>
-        <Image src="/jupiter-logo.svg" width={16} height={16} />
-      </div>
-    </div>
+    </SystemMesage>
   );
 }

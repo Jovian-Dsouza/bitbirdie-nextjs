@@ -1,10 +1,10 @@
 import { useWallet } from "@solana/wallet-adapter-react";
 import { getAssetByName } from "@/data/solanaAssests";
 import { VersionedTransaction, Connection, Keypair } from "@solana/web3.js";
-import React, { useState, useEffect, useCallback } from "react";
-import Image from "next/image";
+import React, { useState, useEffect } from "react";
 import { ArrowRightIcon } from "@heroicons/react/24/solid";
 import { AssetBox } from "./AssetBox";
+import SystemMesage from "@/components/SystemMessage";
 
 export function LimitWidget({
   from,
@@ -118,9 +118,11 @@ export function LimitWidget({
   }
 
   return (
-    <div className="bg-slate-700 rounded-xl px-6 py-3 flex flex-col items-center space-y-4">
-      <div className="text-xl font-semibold">Limit Order</div>
-
+    <SystemMesage
+      title="Limit Order"
+      poweredBy="Jupiter"
+      onConfirm={signAndSendTransaction}
+    >
       <div className="flex items-center justify-center space-x-3">
         <AssetBox
           name={fromAsset.name}
@@ -133,8 +135,8 @@ export function LimitWidget({
 
       <div className="flex flex-col items-center justify-center space-x-2 text-sm text-gray-300">
         <div>
-          Your Rate: 1 {fromAsset.name} = {parseFloat(toAmount/fromAmount).toFixed(4)}{" "}
-          {toAsset.name}
+          Your Rate: 1 {fromAsset.name} ={" "}
+          {parseFloat(toAmount / fromAmount).toFixed(4)} {toAsset.name}
         </div>
         {marketPrice ? (
           <div>
@@ -144,17 +146,7 @@ export function LimitWidget({
         ) : null}
         {expiresAt ? <div>Expires at: {expiresAt}</div> : null}
       </div>
-
-      <button
-        onClick={signAndSendTransaction}
-        className="bg-violet-400 font-bold text-white px-4 py-2 mt-4 rounded-xl"
-      >
-        Confirm
-      </button>
-      <div className="flex space-x-2 justify-center">
-        <div className="text-sm">Powered by Jupiter</div>
-        <Image src="/jupiter-logo.svg" width={16} height={16} />
-      </div>
-    </div>
+    </SystemMesage>
   );
+
 }

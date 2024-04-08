@@ -50,14 +50,14 @@ export default function ChatPage() {
   }, [messages]);
 
   return (
-    <main className="h-screen pt-5">
+    <main className="h-screen pt-10 bg-[#111215]">
       <div className="flex h-full">
         <div className="flex flex-col h-full w-full overflow-hidden">
           <div className="flex-1 overflow-y-scroll no-scrollbar">
             <Chat isLoading={isLoading} isError={isError} isLoggedIn={true} />
             <div style={{ float: "left", clear: "both" }} ref={chatRef}></div>
           </div>
-  
+
           <div className="sticky bottom-0 w-full">
             <ChatInput
               onSubmit={handleChatInput}

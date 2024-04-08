@@ -1,6 +1,11 @@
 import { atom } from "recoil";
-import { testGetPrice } from "@/data/testMessages";
+import { testSwap, testBrainAsk, testLimitOrder, testGetPrice} from "@/data/testMessages";
 export const messagesAtom = atom({
   key: "messagesAtom",
-  default: []
+  default: [],
 });
+
+// export const messagesAtom = atom({
+//   key: "messagesAtom",
+//   default: [testSwap, testBrainAsk, testLimitOrder, testGetPrice],
+// });
