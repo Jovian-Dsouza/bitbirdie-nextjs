@@ -1,5 +1,5 @@
 import { atom } from "recoil";
-import { testSwap, testBrainAsk, testLimitOrder, testGetPrice, testSend} from "@/data/testMessages";
+import { testSwap, testBrainAsk, testBrainAsk2, testLimitOrder, testGetPrice, testSend} from "@/data/testMessages";
 
 export const messagesAtom = atom({
   key: "messagesAtom",

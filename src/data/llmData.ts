@@ -2,9 +2,10 @@ export const demoPrompts = [
   { name: "Swap Action", prompt: "I want to swap 0.01 SOL for BONK." },
   {
     name: "Limit Order",
-    prompt: "Set limit order to buy 60 wif tokens for 1 SOL",
+    prompt: "Set limit order to buy 60 WIF tokens for 1 SOL",
   },
   { name: "Send Action", prompt: "Please send 100 USDT to Alice's wallet." },
+  { name: "Solana Q&A", prompt: "What is Solana's Wormhole feature"},
   { name: "Order History", prompt: "Show me my order history" },
   {
     name: "Information on NFT Action",

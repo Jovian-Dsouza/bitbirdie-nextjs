@@ -25,6 +25,14 @@ export const assets = [
   },
 ];
 
+export function getSupportedAssetList() {
+  return assets.map(asset => asset.name)
+}
+
+export function getSupportedAssetString() {
+  return getSupportedAssetList().join(", ");
+}
+
 export function getAssetByName(name) {
   const lowerCaseName = name.toLowerCase();
   return assets.find((asset) => asset.name.toLowerCase() === lowerCaseName);

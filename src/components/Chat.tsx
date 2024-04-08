@@ -76,6 +76,19 @@ export function MessageRouter({ message, index }) {
     if (messageJson.action === "brian_ask") {
       return <BrianAsk message_details={messageJson.details} />;
     }
+
+     if (messageJson.action === "chat" && messageJson.message) {
+       return (
+         <Message
+           key={index}
+           message={{ role: "assistant", content: messageJson.message }}
+           userName="User"
+           aiName="BitBirdie"
+           userAvatar="/user_logo3.png"
+           aiAvatar="/bitbirdie_logo.jpeg"
+         />
+       );
+     }
   }
   // const messageJson = JSON.parse(message)
   // console.log(messageJson)
