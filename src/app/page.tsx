@@ -3,6 +3,7 @@
 import Image from "next/image";
 import React from "react";
 import MobileContainer from "@/components/landing/MobileContainer"
+import Footer from "@/components/Footer";
 
 const InputWithGradientBorder = () => {
   return (
@@ -19,15 +20,16 @@ const InputWithGradientBorder = () => {
 function LandingPage() {
   return (
     <main className="h-screen pt-5 sm:pt-10 md:pt-16 lg:pt-20 bg-[#111215] overflow-scroll no-scrollbar">
-      <div className="flex flex-col mx-auto min-h-full w-full max-w-6xl  px-5  py-10">
-        <section className="flex flex-col-reverse md:flex-row items-center justify-between space-y-5 md:space-y-0 md:space-x-10 mt-10 mb-32">
+      <div className="flex flex-col  justify-center mx-auto min-h-full w-full max-w-6xl  px-5  py-10">
+        <section className="flex flex-col-reverse md:flex-row items-center justify-between space-y-5 md:space-y-0 md:space-x-10">
           <div className="flex flex-col space-y-3 max-w-lg md:max-w-none">
-            <div className="text-4xl max-w-lg font-semibold text-white">
-              We make crypto portfolio management simple
+            <div className="text-4xl max-w-lg font-semibold text-white font-oxygen">
+              We make your Crypto journey effortless with AI and LLM
             </div>
             <div className="text-lg max-w-md text-gray-500">
-              Unlock automated portfolio management, personalized transaction
-              recommendations, and one-click staking with OKTO AI.
+              Your all-in-one Web3 companion. Unleash the AI magic with Swapping
+              🔄, Limit Orders 🎯, DCA 💹, Portfolio Mastery 📈, and Token
+              Transfers 🚀. Let's dive into the future!
             </div>
             <div className="p-2"></div>
             <div className="flex flex-col md:flex-row w-full md:space-x-2">
@@ -38,7 +40,7 @@ function LandingPage() {
             </div>
           </div>
 
-          <MobileContainer/>
+          <MobileContainer />
 
           {/* <div className="flex-shrink-0 bg-red-400"> */}
 
@@ -56,6 +58,7 @@ function LandingPage() {
           </div> */}
         </section>
       </div>
+      <Footer />
     </main>
   );
 }

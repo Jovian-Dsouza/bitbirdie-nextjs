@@ -8,11 +8,12 @@ import { useSession, signIn, signOut } from "next-auth/react";
 import OktoWalletContainer from "./oktoWallet/OktoWalletContainer";
 import Image from "next/image";
 import { WalletButton } from "./solana/solana-provider";
+import Logo from "@/components/landing/Logo"
 
 function NavLinks() {
   const pathname = usePathname();
   return (
-    <div className="flex space-x-20">
+    <div className="hidden md:flex space-x-20">
       <div className="lg:pr-4 lg:w-auto w-full lg:pt-0">
         <ul className="tracking-wide lg:text-sm flex-col flex lg:flex-row space-x-8 text-[#F1F5F9] font-semibold">
           {menuLinks.map((link, index) => (
@@ -31,20 +32,7 @@ function NavLinks() {
   );
 }
 
-function Logo() {
-  return (
-    <div className="relative z-20 w-full flex justify-between lg:w-max md:px-0">
-      <Link href="/" aria-label="logo" className="flex space-x-2 items-center">
-        <img
-          src="/bitbirdie2.png"
-          alt="logo"
-          className="h-[3.04rem] w-[3.87rem] "
-        />
-        <span className="text-2xl font-bold text-[#F1F5F9]">BitBirdie</span>
-      </Link>
-    </div>
-  );
-}
+
 
 function SelectWallet() {
   // const { data: session } = useSession();

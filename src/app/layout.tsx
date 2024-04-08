@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Oxygen, Kumbh_Sans } from "next/font/google";
 import { Urbanist } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
@@ -18,6 +18,16 @@ const urbanist = Urbanist({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
+const oxygen = Oxygen({
+  subsets: ["latin"],
+  variable: "--font-oxygen",
+  weight: ["400", "300", "700"],
+});
+const kumbhsans = Kumbh_Sans({
+  subsets: ["latin"],
+  variable: "--font-kumbhsans",
+  weight: ["400", "300", "700"],
+});
 
 export const metadata: Metadata = {
   title: "BitBirdie",
@@ -32,7 +42,7 @@ export default async function RootLayout({
   const session = await getServerSession(authOptions);
   return (
     <html lang="en">
-      <body className={urbanist.className}>
+      <body className={`${urbanist.className} ${oxygen.variable} ${kumbhsans.variable}`}>
         <AuthProvider session={session}>
           <ReactQueryProvider>
             <ClusterProvider>

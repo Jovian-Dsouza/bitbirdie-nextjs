@@ -14,6 +14,10 @@ const config: Config = withMT({
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      fontFamily: {
+        oxygen: ["var(--font-oxygen)"],
+        kumbhsans: ["var(--font-kumbhsans)"],
+      },
     },
   },
   plugins: [],
