@@ -20,10 +20,11 @@ const InputWithGradientBorder = () => {
 function LandingPage() {
   return (
     <main className="h-screen pt-5 sm:pt-10 md:pt-16 lg:pt-20 bg-[#111215] overflow-scroll no-scrollbar">
-      <div className="flex flex-col  justify-center mx-auto min-h-full w-full max-w-6xl  px-5  py-10">
+      <div className="flex flex-col  justify-center mx-auto min-h-full w-full max-w-6xl  px-5  py-14 md:py-10">
         <section className="flex flex-col-reverse md:flex-row items-center justify-between space-y-5 md:space-y-0 md:space-x-10">
+          
           <div className="flex flex-col space-y-3 max-w-lg md:max-w-none">
-            <div className="text-4xl max-w-lg font-semibold text-white font-oxygen">
+            <div className="text-center sm:text-left text-4xl max-w-lg font-semibold text-white font-oxygen">
               We make your Crypto journey effortless with AI and LLM
             </div>
             <div className="text-lg max-w-md text-gray-500">
@@ -39,7 +40,7 @@ function LandingPage() {
               </button>
             </div>
           </div>
-
+          <div className="py-3 md:py-0"></div>
           <MobileContainer />
 
           {/* <div className="flex-shrink-0 bg-red-400"> */}

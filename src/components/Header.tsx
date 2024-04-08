@@ -46,7 +46,7 @@ function SelectWallet() {
   //   }
   // }
   return (
-    <div className="">
+    <div className="hidden md:block">
       <WalletButton />
     </div>
   );
@@ -56,7 +56,7 @@ function LandingHeader() {
   return (
     <nav className="absolute z-10 top-5 w-full ">
       <Container>
-        <div className="relative flex items-center justify-between header-bg-border">
+        <div className="relative flex items-center justify-center md:justify-between header-bg-border">
           <Logo />
           <NavLinks />
           <SelectWallet />

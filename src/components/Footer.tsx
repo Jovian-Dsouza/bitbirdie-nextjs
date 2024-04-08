@@ -4,10 +4,13 @@ import Logo from "./landing/Logo";
 
 export function Footer() {
   return (
-    <footer className=" rounded-lg">
-      <div className="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
-        <Logo />
-        <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
+    <footer className="pb-3 rounded-lg">
+      <div className="w-full mx-auto max-w-screen-xl p-4 flex-col md:flex-row flex items-center justify-center  md:justify-between">
+        <div className="w-full flex items-center justify-center md:block md:w-fit">
+          <Logo />
+        </div>
+        <div className="pb-3 md:py-0"></div>
+        <span className="text-sm text-gray-500 text-center">
           © 2024{" "}
           <Link
             href="https://bitbirdie.vercel.app/"
@@ -17,7 +20,7 @@ export function Footer() {
           </Link>
           . All Rights Reserved.
         </span>
-        <ul className="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
+        <ul className="flex justify-center flex-wrap items-center mt-3 text-sm font-medium text-gray-500 sm:mt-0">
           <li>
             <Link href="#" className="hover:underline me-4 md:me-6">
               About
