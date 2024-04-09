@@ -5,6 +5,8 @@ import React from "react";
 import MobileContainer from "@/components/landing/MobileContainer";
 import Footer from "@/components/Footer";
 import GradientButton from "@/components/GradientButton";
+import { Button } from "@material-tailwind/react";
+import Link from "next/link";
 
 const InputWithGradientBorder = () => {
   return (
@@ -30,7 +32,13 @@ function LandingPage() {
             <div className="text-lg max-w-md text-gray-500">
               Your all-in-one Web3 companion. Unleash the AI magic with Swapping
               🔄, Limit Orders 🎯, DCA 💹, Portfolio Mastery 📈, and Token
-              Transfers 🚀. Let's dive into the future!
+              Transfers 🚀. Let's dive into the future!{" "}
+              <Link
+                href="/chat"
+                className="pl-2 text-[#C93586] font-bold underline"
+              >
+                Try Demo
+              </Link>
             </div>
             <div className="p-2"></div>
             <div className="flex flex-col md:flex-row w-full md:space-x-2">
