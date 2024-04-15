@@ -1,6 +1,9 @@
 # BitBirdie
 
-![BitBirdie Logo](public/bitbirdie_logo.jpeg)
+<!-- ![BitBirdie Logo](public/bitbirdie_logo.jpeg) -->
+
+![BitBirdie landing](imgs/landing.png)
+![BitBirdie chat](imgs/chat.png)
 
 
 ## Overview:
