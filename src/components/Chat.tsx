@@ -11,6 +11,7 @@ import BrianAsk from "@/components/Brian/BrianAsk";
 import { LimitWidget } from "./jupiter/LimitWidget";
 import { PriceWidget } from "./jupiter/PriceWidget";
 import { SendWidget } from "@/components/send/SendWidget"
+import { GetPortfolioWidget } from "./GetPortfolio";
 
 function EmptyChat() {
   return (
@@ -77,31 +78,35 @@ export function MessageRouter({ message, index }) {
       return <BrianAsk message_details={messageJson.details} />;
     }
 
-     if (messageJson.action === "chat" && messageJson.message) {
-       return (
-         <Message
-           key={index}
-           message={{ role: "assistant", content: messageJson.message }}
-           userName="User"
-           aiName="BitBirdie"
-           userAvatar="/user_logo3.png"
-           aiAvatar="/bitbirdie_logo.jpeg"
-         />
-       );
-     }
+    if (messageJson.action === "chat" && messageJson.message) {
+      return (
+        <Message
+          key={index}
+          message={{ role: "assistant", content: messageJson.message }}
+          userName="User"
+          aiName="BitBirdie"
+          userAvatar="/user_logo3.png"
+          aiAvatar="/bitbirdie_logo.jpeg"
+        />
+      );
+    }
 
-     if (messageJson.action === "chat" && messageJson.answer) {
-       return (
-         <Message
-           key={index}
-           message={{ role: "assistant", content: messageJson.answer }}
-           userName="User"
-           aiName="BitBirdie"
-           userAvatar="/user_logo3.png"
-           aiAvatar="/bitbirdie_logo.jpeg"
-         />
-       );
-     }
+    if (messageJson.action === "chat" && messageJson.answer) {
+      return (
+        <Message
+          key={index}
+          message={{ role: "assistant", content: messageJson.answer }}
+          userName="User"
+          aiName="BitBirdie"
+          userAvatar="/user_logo3.png"
+          aiAvatar="/bitbirdie_logo.jpeg"
+        />
+      );
+    }
+
+    if (messageJson.action === "get_portfolio") {
+      return <GetPortfolioWidget />
+    }
   }
   // const messageJson = JSON.parse(message)
   // console.log(messageJson)
