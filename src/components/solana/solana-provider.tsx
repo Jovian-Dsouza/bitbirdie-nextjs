@@ -27,7 +27,7 @@ export function SolanaProvider({ children }: { children: ReactNode }) {
   }, []);
 
   return (
-    <ConnectionProvider endpoint={endpoint}>
+    <ConnectionProvider endpoint={process.env.NEXT_PUBLIC_SOLANA_MAINNET_RPC!!}>
       <WalletProvider wallets={[]} onError={onError} autoConnect={true}>
         <WalletModalProvider>{children}</WalletModalProvider>
       </WalletProvider>
