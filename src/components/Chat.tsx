@@ -89,6 +89,19 @@ export function MessageRouter({ message, index }) {
          />
        );
      }
+
+     if (messageJson.action === "chat" && messageJson.answer) {
+       return (
+         <Message
+           key={index}
+           message={{ role: "assistant", content: messageJson.answer }}
+           userName="User"
+           aiName="BitBirdie"
+           userAvatar="/user_logo3.png"
+           aiAvatar="/bitbirdie_logo.jpeg"
+         />
+       );
+     }
   }
   // const messageJson = JSON.parse(message)
   // console.log(messageJson)

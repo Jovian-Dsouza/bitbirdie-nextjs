@@ -1,10 +1,10 @@
 import OpenAI from "openai";
 import Anthropic from "@anthropic-ai/sdk";
-import { brian, askBrian } from "./brian/brianApi";
+// import { brian, askBrian } from "./brian/brianApi";
 import { baseModel } from "@/data/llmData";
 import { basePrompt } from "@/data/prompt";
 
-const modelAPI = "anthropic"; // "openai"
+const modelAPI = "openai"
 export const openRouter = new OpenAI({
   baseURL: process.env.OPENROUTER_BASE_URL,
   apiKey: process.env.OPENROUTER_API_KEY,
@@ -14,7 +14,6 @@ export const openRouter = new OpenAI({
   },
 });
 
-console.log("CLAUDE API KEY", process.env.ANTHROPIC_API_KEY);
 const anthropic = new Anthropic({
   apiKey: process.env.ANTHROPIC_API_KEY,
 });
@@ -90,14 +89,14 @@ export async function getChatResponse(messages) {
     ];
     response = filterResponse(await getOpenRouterResponse(messagesWithPrompt));
   }
-  if (response["action"] === "ask") {
-    // console.log(originalMessage);
-    const brainResponse = await askBrian(originalMessage);
-    // console.log(brainResponse);
-    return {
-      action: "brian_ask",
-      details: brainResponse,
-    };
-  }
+  // if (response["action"] === "ask") {
+  //   // console.log(originalMessage);
+  //   const brainResponse = await askBrian(originalMessage);
+  //   // console.log(brainResponse);
+  //   return {
+  //     action: "brian_ask",
+  //     details: brainResponse,
+  //   };
+  // }
   return response;
 }
