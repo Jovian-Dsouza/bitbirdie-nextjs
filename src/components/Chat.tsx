@@ -33,80 +33,96 @@ function EmptyChat() {
 
 export function MessageRouter({ message, index }) {
   // console.log("message", message)
-  if (message.role == "assistant") {
-    const messageJson = JSON.parse(message.content);
-    console.log("Message content", messageJson);
 
-    if (messageJson.action === "send") {
-      return (
-        <SendWidget
-          fromToken={messageJson.tokenFrom}
-          toAddress={messageJson.toAddress}
-          amountIn={messageJson.amountIn}
-        />
-      );
-    }
+  try {
+    if (message.role == "assistant") {
+      const messageJson = JSON.parse(message.content);
+      console.log("Message content", messageJson);
 
-    if (messageJson.action === "swap") {
-      return (
-        <SwapWidget
-          from={messageJson.tokenFrom}
-          to={messageJson.tokenTo}
-          fromAmount={messageJson.amountIn}
-        />
-      );
-    }
+      if (messageJson.action === "send") {
+        return (
+          <SendWidget
+            fromToken={messageJson.tokenFrom}
+            toAddress={messageJson.toAddress}
+            amountIn={messageJson.amountIn}
+          />
+        );
+      }
 
-    if (messageJson.action === "limit_order") {
-      return (
-        <LimitWidget
-          from={messageJson.tokenFrom}
-          to={messageJson.tokenTo}
-          fromAmount={messageJson.amountIn}
-          toAmount={messageJson.amountOut}
-        />
-      );
-    }
+      if (messageJson.action === "swap") {
+        return (
+          <SwapWidget
+            from={messageJson.tokenFrom}
+            to={messageJson.tokenTo}
+            fromAmount={messageJson.amountIn}
+          />
+        );
+      }
 
-    if (messageJson.action === "get_price") {
-      return (
-          <PriceWidget from={messageJson.tokenFrom} to={messageJson.tokenTo} />
-      );
-    }
+      if (messageJson.action === "limit_order") {
+        return (
+          <LimitWidget
+            from={messageJson.tokenFrom}
+            to={messageJson.tokenTo}
+            fromAmount={messageJson.amountIn}
+            toAmount={messageJson.amountOut}
+          />
+        );
+      }
 
-    if (messageJson.action === "brian_ask") {
-      return <BrianAsk message_details={messageJson.details} />;
-    }
+      if (messageJson.action === "get_price") {
+        return (
+            <PriceWidget from={messageJson.tokenFrom} to={messageJson.tokenTo} />
+        );
+      }
 
-    if (messageJson.action === "chat" && messageJson.message) {
-      return (
-        <Message
-          key={index}
-          message={{ role: "assistant", content: messageJson.message }}
-          userName="User"
-          aiName="BitBirdie"
-          userAvatar="/user_logo3.png"
-          aiAvatar="/bitbirdie_logo.jpeg"
-        />
-      );
-    }
+      if (messageJson.action === "brian_ask") {
+        return <BrianAsk message_details={messageJson.details} />;
+      }
 
-    if (messageJson.action === "chat" && messageJson.answer) {
-      return (
-        <Message
-          key={index}
-          message={{ role: "assistant", content: messageJson.answer }}
-          userName="User"
-          aiName="BitBirdie"
-          userAvatar="/user_logo3.png"
-          aiAvatar="/bitbirdie_logo.jpeg"
-        />
-      );
-    }
+      if (messageJson.action === "chat" && messageJson.message) {
+        return (
+          <Message
+            key={index}
+            message={{ role: "assistant", content: messageJson.message }}
+            userName="User"
+            aiName="BitBirdie"
+            userAvatar="/user_logo3.png"
+            aiAvatar="/bitbirdie_logo.jpeg"
+          />
+        );
+      }
 
-    if (messageJson.action === "get_portfolio") {
-      return <GetPortfolioWidget />
+      if (messageJson.action === "chat" && messageJson.answer) {
+        return (
+          <Message
+            key={index}
+            message={{ role: "assistant", content: messageJson.answer }}
+            userName="User"
+            aiName="BitBirdie"
+            userAvatar="/user_logo3.png"
+            aiAvatar="/bitbirdie_logo.jpeg"
+          />
+        );
+      }
+
+      if (messageJson.action === "get_portfolio") {
+        return <GetPortfolioWidget />
+      }
     }
+  }
+  catch (error) {
+    console.log("Error parsing message", error)
+     return (
+      <Message
+        key={index}
+        message={{role: "assistant", content: "Sorry, I encountered an error processing this message. Please try again."} }
+        userName="User"
+        aiName="BitBirdie"
+        userAvatar="/user_logo3.png"
+        aiAvatar="/bitbirdie_logo.jpeg"
+      />
+    );
   }
   // const messageJson = JSON.parse(message)
   // console.log(messageJson)
